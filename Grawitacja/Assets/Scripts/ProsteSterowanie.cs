@@ -23,7 +23,9 @@ public class ProsteSterowanie : MonoBehaviour
 	{
 		float ruch = Input.GetAxis ("Horizontal");
 
-		if (ruch * rigidb.velocity.x < speed)
+		rigidb.velocity = new Vector2( ruch * speed * Time.deltaTime, rigidb.velocity.y );
+
+		/*if (ruch * rigidb.velocity.x < speed)
 			rigidb.AddForce(Vector2.right * ruch * accel);
 
 		if (Mathf.Abs (rigidb.velocity.x) > speed)
@@ -33,8 +35,7 @@ public class ProsteSterowanie : MonoBehaviour
 		{
 			StartCoroutine( zwalnianie() );
 			rigidb.velocity = new Vector2( 0f, rigidb.velocity.y );
-		}
-
+		}*/
 	}
 
 	/*
