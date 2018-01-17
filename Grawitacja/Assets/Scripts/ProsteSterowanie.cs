@@ -16,7 +16,7 @@ public class ProsteSterowanie : MonoBehaviour
 
 	IEnumerator zwalnianie()
 	{
-		yield return new WaitForSeconds( 0.1f );
+		yield return new WaitForSeconds( 0.01f );
 	}
 
 	void FixedUpdate ()
@@ -30,12 +30,12 @@ public class ProsteSterowanie : MonoBehaviour
 
 		if (Mathf.Abs (rigidb.velocity.x) > speed)
 			rigidb.velocity = new Vector2(Mathf.Sign (rigidb.velocity.x) * speed, rigidb.velocity.y);
-
+		*/
 		if (ruch == 0) 
 		{
 			StartCoroutine( zwalnianie() );
 			rigidb.velocity = new Vector2( 0f, rigidb.velocity.y );
-		}*/
+		}
 	}
 
 	/*
