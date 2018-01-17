@@ -14,6 +14,11 @@ public class ProsteSterowanie : MonoBehaviour
 		rigidb = GetComponent<Rigidbody2D>();
 	}
 
+	IEnumerator zwalnianie()
+	{
+		yield return new WaitForSeconds( 0.1f );
+	}
+
 	void FixedUpdate ()
 	{
 		float ruch = Input.GetAxis ("Horizontal");
@@ -26,8 +31,8 @@ public class ProsteSterowanie : MonoBehaviour
 
 		if (ruch == 0) 
 		{
-			if(Mathf.Abs (rigidb.velocity.x) > 1f)
-				rigidb.AddForce(Vector2.right * Mathf.Sign (rigidb.velocity.x) * -1 * zwolnij);
+			StartCoroutine( zwalnianie() );
+			rigidb.velocity = new Vector2( 0f, rigidb.velocity.y );
 		}
 
 	}
